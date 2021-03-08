@@ -24,3 +24,17 @@ def test_CanCalucateTotalDiscount(invoice, products):
 def test_CanCalucateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
+
+def test_CanCalculateTotalDiscount(invoice, products):
+    invoice.totalDiscount(products)
+    assert invoice.totalDiscount(products) == 1.02
+
+def test_CanCalucateTotalImpurePrice(invoice, products):
+    invoice.totalImpurePrice(products)
+    assert invoice.totalPurePrice(products) == 77.31
+
+def totalPurePrice(self, products):
+    total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
+    return total_pure_price
+
+
